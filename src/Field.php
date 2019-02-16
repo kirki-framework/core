@@ -16,7 +16,7 @@ namespace Kirki\Core;
  * Please do not use this class directly.
  * You should instead extend it per-field-type.
  */
-class Kirki_Field {
+class Field {
 
 	/**
 	 * An array of the field arguments.

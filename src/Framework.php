@@ -10,7 +10,7 @@
  * @since       1.0
  */
 
-namespace Kirki\Core\Framework;
+namespace Kirki\Core;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

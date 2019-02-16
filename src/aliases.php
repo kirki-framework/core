@@ -22,3 +22,4 @@ class_alias( 'Kirki\Core\Section', 'Kirki_Section' );
 class_alias( 'Kirki\Core\Sections', 'Kirki_Sections' );
 class_alias( 'Kirki\Core\Values', 'Kirki_Values' );
 class_alias( 'Kirki\Core\Util', 'Kirki_Util' );
+class_alias( 'Kirki\Core\Framework', 'Kirki_Toolkit' );
