@@ -61,7 +61,7 @@ class Modules {
 			'kirki_modules',
 			array(
 				'css'                => '\Kirki\Modules\CSS\Module',
-				'css-vars'           => '\Kirki_Modules_CSS_Vars',
+				'css-vars'           => '\Kirki\Modules\CSS_Vars\Module',
 				'customizer-styling' => '\Kirki_Modules_Customizer_Styling',
 				'icons'              => '\Kirki_Modules_Icons',
 				'loading'            => '\Kirki_Modules_Loading',
