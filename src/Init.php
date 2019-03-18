@@ -12,13 +12,6 @@
 
 namespace Kirki\Core;
 
-use Kirki\Core\Control;
-use Kirki\Core\Panel;
-use Kirki\Core\Sections;
-use Kirki\Core\Values;
-use Kirki\Core\Util;
-use Kirki\Core\Settings;
-
 /**
  * Initialize Kirki
  */
@@ -48,6 +41,7 @@ class Init {
 
 		new Values();
 		new Sections();
+		new Telemetry();
 	}
 
 	/**

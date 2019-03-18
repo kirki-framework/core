@@ -73,7 +73,6 @@ class Modules {
 				'webfont-loader'     => '\Kirki_Modules_Webfont_Loader',
 				'preset'             => '\Kirki\Modules\Preset\Module',
 				'gutenberg'          => '\Kirki\Modules\Editor_Styles\Module',
-				'telemetry'          => '\Kirki_Modules_Telemetry',
 			]
 		);
 	}
