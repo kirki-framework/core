@@ -300,7 +300,10 @@ class Helper {
 	 * @return array
 	 */
 	public static function get_material_design_colors( $context = 'primary' ) {
-		return \Kirki\Core\Material_Colors::get_colors( $context );
+		if ( class_exists( '\Kirki\Core\Material_Colors' ) ) {
+			return \Kirki\Core\Material_Colors::get_colors( $context );
+		}
+		return [];
 	}
 
 	/**
