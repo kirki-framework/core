@@ -28,15 +28,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Kirki extends Init {
 
 	/**
-	 * Absolute path to the Kirki folder.
-	 *
-	 * @static
-	 * @access public
-	 * @var string
-	 */
-	public static $path;
-
-	/**
 	 * URL to the Kirki folder.
 	 *
 	 * @deprecated This is no longer used. Only kept here for backwards compatibility to avoid fatal errors.
