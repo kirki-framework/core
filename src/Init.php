@@ -217,7 +217,8 @@ class Init {
 
 		if ( ! empty( $fields ) ) {
 			foreach ( $fields as $field ) {
-				Kirki::add_field( 'global', $field );
+				$field['config_id'] = 'global';
+				Kirki::add_field( $field );
 			}
 		}
 	}

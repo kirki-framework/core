@@ -243,11 +243,17 @@ class Kirki extends Init {
 
 		$str       = str_replace( [ '-', '_' ], ' ', $args['type'] );
 		$classname = '\Kirki\Field\\' . str_replace( ' ', '_', ucwords( $str ) );
+
+		$config = Config::get_instance( $config_id )->get_config();
+		$args['config_id'] = isset( $args['config_id'] ) ? $args['config_id'] : $config_id;
+		unset( $config['id'] );
+		$args = wp_parse_args( $args, $config );
+
 		if ( class_exists( $classname ) ) {
-			new $classname( $config_id, $args );
+			new $classname( $args );
 			return;
 		}
-		new Field( $config_id, $args );
+		new Field( $args );
 	}
 
 	/**
