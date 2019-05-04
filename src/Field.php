@@ -249,7 +249,7 @@ class Field {
 		// assume that the provided argument is $args and set $config_id = 'global'.
 		if ( is_array( $config_id ) && empty( $args ) ) {
 			$args      = $config_id;
-			$config_id = isset( $args['config_id'] ) ? $args['config_id'] : 'global';
+			$config_id = isset( $args['kirki_config'] ) ? $args['kirki_config'] : 'global';
 		}
 
 		if ( isset( $args['setting'] ) && ! empty( $args['setting'] ) && ( ! isset( $args['settings'] ) || empty( $args['settings'] ) ) ) {

@@ -245,7 +245,7 @@ class Kirki extends Init {
 		$classname = '\Kirki\Field\\' . str_replace( ' ', '_', ucwords( $str ) );
 
 		$config = Config::get_instance( $config_id )->get_config();
-		$args['config_id'] = isset( $args['config_id'] ) ? $args['config_id'] : $config_id;
+		$args['kirki_config'] = isset( $args['kirki_config'] ) ? $args['kirki_config'] : $config_id;
 		unset( $config['id'] );
 		$args = wp_parse_args( $args, $config );
 
