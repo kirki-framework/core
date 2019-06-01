@@ -61,7 +61,6 @@ class Modules {
 			'kirki_modules',
 			[
 				'css'                => '\Kirki\Modules\CSS\Module',
-				'loading'            => '\Kirki\Modules\Loading\Module',
 			]
 		);
 	}
