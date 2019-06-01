@@ -62,7 +62,6 @@ class Modules {
 			[
 				'css'                => '\Kirki\Modules\CSS\Module',
 				'loading'            => '\Kirki\Modules\Loading\Module',
-				'gutenberg'          => '\Kirki\Modules\Editor_Styles\Module',
 			]
 		);
 	}
@@ -93,6 +92,7 @@ class Modules {
 		new \Kirki\Module\Selective_Refresh();
 		new \Kirki\Module\Field_Dependencies();
 		new \Kirki\Module\Postmessage();
+		new \Kirki\Module\Editor_Styles();
 	}
 
 	/**
