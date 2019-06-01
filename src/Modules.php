@@ -68,7 +68,6 @@ class Modules {
 				'field-dependencies' => '\Kirki\Modules\Field_Dependencies\Module',
 				'custom-sections'    => '\Kirki\Modules\Custom_Sections\Module',
 				'webfonts'           => '\Kirki\Modules\Webfonts\Module',
-				'webfont-loader'     => '\Kirki\Modules\Webfont_Loader\Module',
 				'preset'             => '\Kirki\Modules\Preset\Module',
 				'gutenberg'          => '\Kirki\Modules\Editor_Styles\Module',
 			]
@@ -94,6 +93,7 @@ class Modules {
 
 		new \Kirki\Module\Tooltips();
 		new \Kirki\Module\CSS_Vars();
+		new \Kirki\Module\Webfont_Loader();
 	}
 
 	/**
