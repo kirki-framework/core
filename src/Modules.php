@@ -93,7 +93,6 @@ class Modules {
 		new \Kirki\Module\Tooltips();
 		new \Kirki\Module\CSS_Vars();
 		new \Kirki\Module\Webfonts();
-		new \Kirki\Module\Webfont_Loader();
 	}
 
 	/**
