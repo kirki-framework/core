@@ -25,7 +25,7 @@ class Values {
 	 *
 	 * @static
 	 * @access public
-	 * @param string $config_id The configuration ID. @see Kirki\Core\Config.
+	 * @param string $config_id The configuration ID. @see Kirki\Compatibility\Config.
 	 * @param string $field_id  The field ID.
 	 * @return string|array
 	 */

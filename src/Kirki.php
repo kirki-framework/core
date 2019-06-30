@@ -14,6 +14,7 @@
 
 namespace Kirki\Core;
 
+use Kirki\Compatibility\Config;
 use Kirki\Compatibility\Field;
 
 // Exit if accessed directly.

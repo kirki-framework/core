@@ -12,6 +12,8 @@
 
 namespace Kirki\Core;
 
+use Kirki\Compatibility\Control;
+
 /**
  * Initialize Kirki
  */
