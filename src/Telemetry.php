@@ -12,6 +12,8 @@
 
 namespace Kirki\Core;
 
+use Kirki\Compatibility\Kirki;
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
