@@ -7,7 +7,7 @@
  * @since 3.0.0
  */
 
-namespace Kirki\Core\Setting;
+namespace Kirki\Util\Setting;
 
 /**
  * Handles saving and sanitizing of user-meta.
