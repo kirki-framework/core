@@ -12,7 +12,6 @@
 
 namespace Kirki\Util;
 
-
 /**
  * Utility class.
  */
