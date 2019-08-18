@@ -13,12 +13,21 @@
 namespace Kirki\Util;
 
 use Kirki\Compatibility\Values;
-use Kirki\Compatibility\Kirki;
 
 /**
  * Utility class.
  */
 class Util {
+
+	/**
+	 * Fields containing variables.
+	 *
+	 * @static
+	 * @access private
+	 * @since 4.0
+	 * @var array
+	 */
+	private $variables_fields = [];
 
 	/**
 	 * Constructor.
@@ -28,6 +37,7 @@ class Util {
 	 */
 	public function __construct() {
 		add_filter( 'http_request_args', [ $this, 'http_request' ], 10, 2 );
+		add_action( 'kirki_field_init', [ $this, 'field_init_variables' ], 10, 2 );
 	}
 
 	/**
@@ -70,6 +80,21 @@ class Util {
 	}
 
 	/**
+	 * Add fields with variables to self::$variables_fields.
+	 *
+	 * @access public
+	 * @since 4.0
+	 * @param array  $args   The field args.
+	 * @param Object $object The field object.
+	 * @return void
+	 */
+	public function field_init_variables( $args, $object ) {
+		if ( isset( $args['variables'] ) ) {
+			self::$variables_fields[] = $args;
+		}
+	}
+
+	/**
 	 * Build the variables.
 	 *
 	 * @static
@@ -80,11 +105,11 @@ class Util {
 	public static function get_variables() {
 
 		$variables = [];
-		$fields    = [];
+		$fields    = self::$variables_fields;
 
 		// Compatibility with v3 API.
 		if ( class_exists( '\Kirki\Compatibility\Kirki' ) ) {
-			$fields = \Kirki\Compatibility\Kirki::$fields;
+			$fields = array_merge( \Kirki\Compatibility\Kirki::$fields, $fields );
 		}
 
 		// Loop through all fields.
