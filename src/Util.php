@@ -12,7 +12,6 @@
 
 namespace Kirki\Util;
 
-use Kirki\Compatibility\Values;
 
 /**
  * Utility class.
