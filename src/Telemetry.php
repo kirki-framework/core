@@ -236,8 +236,14 @@ final class Telemetry {
 	 * @return array
 	 */
 	public function get_field_types() {
-		$types = [];
-		foreach ( Kirki::$fields as $field ) {
+		$types  = [];
+		$fields = [];
+
+		// Compatibility with v3 API.
+		if ( class_exists( '\Kirki\Compatibility\Kirki' ) ) {
+			$fields = \Kirki\Compatibility\Kirki::$fields;
+		}
+		foreach ( $fields as $field ) {
 			if ( isset( $field['type'] ) ) {
 				self::$types[] = $field['type'];
 			}

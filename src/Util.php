@@ -80,9 +80,15 @@ class Util {
 	public static function get_variables() {
 
 		$variables = [];
+		$fields    = [];
+
+		// Compatibility with v3 API.
+		if ( class_exists( '\Kirki\Compatibility\Kirki' ) ) {
+			$fields = \Kirki\Compatibility\Kirki::$fields;
+		}
 
 		// Loop through all fields.
-		foreach ( Kirki::$fields as $field ) {
+		foreach ( $fields as $field ) {
 
 			// Check if we have variables for this field.
 			if ( isset( $field['variables'] ) && $field['variables'] && ! empty( $field['variables'] ) ) {
