@@ -107,7 +107,11 @@ class Util {
 		$variables = [];
 		$fields    = self::$variables_fields;
 
-		// Compatibility with v3 API.
+		/**
+		 * Compatibility with Kirki v3.x API.
+		 * If the Kirki class exists, check for fields inside it
+		 * and add them to our fields array.
+		 */
 		if ( class_exists( '\Kirki\Compatibility\Kirki' ) ) {
 			$fields = array_merge( \Kirki\Compatibility\Kirki::$fields, $fields );
 		}
@@ -115,25 +119,32 @@ class Util {
 		// Loop through all fields.
 		foreach ( $fields as $field ) {
 
-			// Check if we have variables for this field.
-			if ( isset( $field['variables'] ) && $field['variables'] && ! empty( $field['variables'] ) ) {
+			// Skip if this field doesn't have variables.
+			if ( ! isset( $field['variables'] ) || ! $field['variables'] || empty( $field['variables'] ) ) {
+				continue;
+			}
 
-				// Loop through the array of variables.
-				foreach ( $field['variables'] as $field_variable ) {
+			$option_type = ( isset( $field['option_type'] ) ) ? $field['option_type'] : 'theme_mod';
+			$default     = ( isset( $field['default'] ) ) ? $field['default'] : '';
+			$value       = apply_filters( 'kirki_get_value', get_theme_mod( $field['settings'], $default ), $field['settings'], $default, $option_type );
 
-					// Is the variable ['name'] defined? If yes, then we can proceed.
-					if ( isset( $field_variable['name'] ) ) {
+			// Loop through the array of variables.
+			foreach ( $field['variables'] as $field_variable ) {
 
-						// Do we have a callback function defined? If not then set $variable_callback to false.
-						$variable_callback = ( isset( $field_variable['callback'] ) && is_callable( $field_variable['callback'] ) ) ? $field_variable['callback'] : false;
+				// Is the variable ['name'] defined? If yes, then we can proceed.
+				if ( isset( $field_variable['name'] ) ) {
 
-						// If we have a variable_callback defined then get the value of the option
-						// and run it through the callback function.
-						// If no callback is defined (false) then just get the value.
-						$variables[ $field_variable['name'] ] = Values::get_value( $field['settings'] );
-						if ( $variable_callback ) {
-							$variables[ $field_variable['name'] ] = call_user_func( $field_variable['callback'], Values::get_value( $field['settings'] ) );
-						}
+					// Do we have a callback function defined? If not then set $variable_callback to false.
+					$variable_callback = ( isset( $field_variable['callback'] ) && is_callable( $field_variable['callback'] ) ) ? $field_variable['callback'] : false;
+
+					/**
+					 * If we have a variable_callback defined then get the value of the option
+					 * and run it through the callback function.
+					 * If no callback is defined (false) then just get the value.
+					 */
+					$variables[ $field_variable['name'] ] = $value;
+					if ( $variable_callback ) {
+						$variables[ $field_variable['name'] ] = call_user_func( $field_variable['callback'], $value );
 					}
 				}
 			}
